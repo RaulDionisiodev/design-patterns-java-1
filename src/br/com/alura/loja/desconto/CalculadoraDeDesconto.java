@@ -24,9 +24,9 @@ public class CalculadoraDeDesconto {
         // Cada classe testa o se aplica ou não o desconto e, se não aplicar chama a próxima
         // até a classe SemDesconto que somente retorna zero
 
-         Desconto desconto = new DescontoParaOrcamentoComMaisDeCincoItens(
+         Desconto cadeiaDeDecontos = new DescontoParaOrcamentoComMaisDeCincoItens(
                  new DescontoParaOrcamentoMaiorQueQuinhentos(new SemDesconto()));
 
-        return desconto.calcular(orcamento);
+        return cadeiaDeDecontos.calucular(orcamento);
     }
 }

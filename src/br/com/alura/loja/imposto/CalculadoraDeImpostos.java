@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public class CalculadoraDeImpostos {
 
     //Calcula o valor do imposto para cada orçamento de acordo com a alíquota de imposto
-    public BigDecimal calcular(Orcamento orcamento, TipoImpostoEnum tipoImposto) {
+    public BigDecimal efetuarCalculo(Orcamento orcamento, TipoImpostoEnum tipoImposto) {
 
         // Funciona, porém ficará cada vez maior sempre que um novo imposto for criado, pois será necessário
         // colocar um novo case aqui
@@ -22,8 +22,8 @@ public class CalculadoraDeImpostos {
     }
 
     //Para solucionar vamos criar uma classe para cada imposto ao invés de passar o enum
-    public BigDecimal calcular(Orcamento orcamento, Imposto imposto) {
-        return imposto.calcular(orcamento);
+    public BigDecimal efetuarCalculo(Orcamento orcamento, Imposto imposto) {
+        return imposto.efetuarCalculo(orcamento);
     }
 
     /*

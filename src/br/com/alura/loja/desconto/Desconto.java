@@ -12,5 +12,18 @@ public abstract class Desconto {
         this.proximo = proximo;
     }
 
-    public abstract BigDecimal calcular (Orcamento orcamento);
+    // No template Method é a classe mãe que verifica qual é o desconto a ser aplicado
+    protected abstract BigDecimal efetuarCalculo (Orcamento orcamento);
+
+    // O processo de calcular fica aqui e não nas classes filhas. as classes só tem suas regras específicas
+    // a regra repetida vem pra classe mãe
+    public BigDecimal calucular (Orcamento orcamento) {
+        if (deveAplicar(orcamento)) {
+            return efetuarCalculo(orcamento);
+        }
+
+        return proximo.calucular(orcamento);
+    }
+
+    public abstract boolean deveAplicar (Orcamento orcamento);
 }

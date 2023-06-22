@@ -14,10 +14,10 @@ public class Main {
         CalculadoraDeImpostos calculadora = new CalculadoraDeImpostos();
 
         //sem strategy
-        System.out.println(calculadora.calcular(orcamento, TipoImpostoEnum.ISS));
+        System.out.println(calculadora.efetuarCalculo(orcamento, TipoImpostoEnum.ISS));
 
         //com strategy
-        System.out.println(calculadora.calcular(orcamento, new ISS()));
+        System.out.println(calculadora.efetuarCalculo(orcamento, new ISS()));
 
         //TESTANDO DESCONTOS
         CalculadoraDeDesconto calculadoraDeDesconto = new CalculadoraDeDesconto();
