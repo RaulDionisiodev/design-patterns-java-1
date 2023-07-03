@@ -3,8 +3,12 @@ import br.com.alura.loja.imposto.CalculadoraDeImpostos;
 import br.com.alura.loja.imposto.ISS;
 import br.com.alura.loja.imposto.TipoImpostoEnum;
 import br.com.alura.loja.orcamento.Orcamento;
+import br.com.alura.loja.pedido.GeraPedido;
+import br.com.alura.loja.pedido.GeraPedidoHandler;
+import br.com.alura.loja.pedido.Pedido;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,5 +32,17 @@ public class Main {
         Orcamento orcamentoDesconto2 = new Orcamento(new BigDecimal("1000"), 1);
 
         System.out.println(calculadoraDeDesconto.calcular(orcamentoDesconto2));
+
+        /*TESTANDO PEDIDOS*/
+        String cliente = "João";
+        BigDecimal valorOrcamento = new BigDecimal("200");
+        int quantidadeItens = 4;
+
+        GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
+
+        GeraPedidoHandler handler = new GeraPedidoHandler(); //passando as dependências
+
+        handler.executa(geraPedido);
+
     }
 }
