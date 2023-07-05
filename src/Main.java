@@ -6,9 +6,12 @@ import br.com.alura.loja.orcamento.Orcamento;
 import br.com.alura.loja.pedido.GeraPedido;
 import br.com.alura.loja.pedido.GeraPedidoHandler;
 import br.com.alura.loja.pedido.Pedido;
+import br.com.alura.loja.pedido.acao.EnviarEmailPedido;
+import br.com.alura.loja.pedido.acao.SalvarPedidoNoBancoDeDados;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,7 +43,7 @@ public class Main {
 
         GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
 
-        GeraPedidoHandler handler = new GeraPedidoHandler(); //passando as dependências
+        GeraPedidoHandler handler = new GeraPedidoHandler(Arrays.asList(new EnviarEmailPedido(), new SalvarPedidoNoBancoDeDados())); //passando as dependências
 
         handler.executa(geraPedido);
 
